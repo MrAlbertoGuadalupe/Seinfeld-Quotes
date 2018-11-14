@@ -2,24 +2,32 @@
   text-align: center;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  height: 1000px;
 }
 
 
 .panels {
-  margin: 0 auto;
   grid-rows: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 100px;
+  width: 150px;
   /* border: solid black 2px; */
 }
 .panels > div {
 border: solid black 2px;
 background-size: cover;
 background-repeat: no-repeat;
-height: 200px;
-width: 200px;
+height: 100px;
+width: 150px;
+cursor: pointer;
 }
-
+.home {
+  cursor: pointer;
+}
 .welcomemsg{
   grid-row: 1;
+}
+ul{
+list-style-type: none;
 }

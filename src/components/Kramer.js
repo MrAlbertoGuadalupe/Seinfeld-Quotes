@@ -2,19 +2,24 @@ import React from 'react';
 
 
 export default function Elaine(props){
-
+let data = [];
 return(
-<div className ="bag">
+  <div className= "parent">
+    {props.holddata.filter(e => {
+      if(e.author==="Kramer"){
+        data.push(e.quote);
+      }
 
-<h1>
-Kramer
+    }
+    )}
+      {data.map(e => (
+                   <div className= "baggy" key={e}>
 
-
-</h1>
-
-
-</div>
-
+                <p>quote:  {e}</p>
+              </div>
+            ))
+      }
+  </div>
 )
 }
 // <img src={props.holddata[1].picture} />

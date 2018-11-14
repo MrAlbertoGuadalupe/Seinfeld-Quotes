@@ -9,7 +9,7 @@ return(
   <div className = "parent">
 
   {props.holddata.map(index => (
-               <div className= "bag" key={index}>
+               <div className= "quotebag" key={index}>
                {console.log(index)}
             <p>Quote:  {index.quote}</p>
           </div>

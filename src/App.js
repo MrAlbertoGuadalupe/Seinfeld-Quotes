@@ -1,38 +1,57 @@
 import React, { Component } from 'react';
 import './App.css';
 import Director from './components/Director.js'
-import Welcome from './components/Welcome.js'
 import AllQuotes from './components/AllQuotes.js'
 import Jerry from './components/Jerry.js'
 import George from './components/George.js'
 import Elaine from './components/Elaine.js'
 import Kramer from './components/Kramer.js'
+import Home from './components/Home.js'
+import Trivia from './components/Trivia.js'
 import axios from 'axios';
 
 const BASE_URL = 'https://seinfeld-quotes.herokuapp.com/quotes';
-
+const RAN_URL = 'https://seinfeld-quotes.herokuapp.com/random';
 class App extends Component {
   constructor(props){
       super(props);
       this.state = {
-        currentView: '',
+        curView: '',
         quote: '',
-        id: ''
+        ranQuote: '',
+        on:''
       }
       this.fetchChars = this.fetchChars.bind(this);
       this.setView = this.setView.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
 async handleSubmit(e) {
+  let speaker = ''
+  if (this.state.ranQuote['author'] != "Elaine" &&
+      this.state.ranQuote['author'] != "Jerry" &&
+      this.state.ranQuote['author'] != "Kramer" &&
+      this.state.ranQuote['author'] != "George"
+    ){
+      speaker = "Other"
+    }else {
+      speaker = this.state.ranQuote['author']
+    }
         e.preventDefault();
-      }
+        if (this.state.on === speaker) {
+          console.log('correct')
+        } else {
+          console.log('incorrect')
+        }
+}
 
 handleChange(e) {
-         const name = e.target.name;
+         const id = e.target.id;
          const value = e.target.value;
          this.setState({
-           [name]: value
+           on: id
          });
        }
 async componentDidMount() {
@@ -40,8 +59,12 @@ async componentDidMount() {
 }
 async fetchChars() {
              const resp = await axios.get(BASE_URL);
+             const ranResp = await axios.get(RAN_URL);
+
              this.setState({
-               quote: resp.data.quotes
+               quote: resp.data.quotes,
+               ranQuote: ranResp.data,
+               curView: []
 
              });
 
@@ -65,7 +88,7 @@ getView(){
     case 'Jerry':
     return <Jerry
     holddata = {this.state.quote}
-    holddata2 = {this.state.id}
+
 
       />
     case 'Kramer':
@@ -73,6 +96,7 @@ getView(){
       holddata = {this.state.quote}
 
         />
+
       case 'Elaine':
         return <Elaine
         holddata = {this.state.quote}
@@ -83,18 +107,29 @@ getView(){
       holddata = {this.state.quote}
 
         />
-      default:
-      return <Welcome
+      case 'Trivia':
+          return <Trivia
+          holdrandata = {this.state.ranQuote}
+          holdMsg ={this.state.message}
+          handleChange= {this.handleChange}
+          handleSubmit= {this.handleSubmit}
+            />
 
+      default:
+      return <Director
+      handleViewChange={this.setView}
        />
+
+
    }
 }
 render() {
   return (
     <div className="App">
-    <Director
-    handleViewChange={this.setView}
-     />
+        <Home
+          handleViewChange={this.setView}
+
+          />
         {this.getView()}
       </div>
 
@@ -103,4 +138,3 @@ render() {
 }
 
 export default App;
-// console.log(resp.data.quotes[0])

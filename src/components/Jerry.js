@@ -2,21 +2,25 @@ import React from 'react';
 
 
 export default function Jerry(props){
+let data=[];
 
 return(
-<div className ="bag">
+  <div className= "parent">
+    {props.holddata.filter(e => {
+      if(e.author==="Jerry"){
+        data.push(e.quote);
+      }
 
-<h1>
-{props.holddata[1].quote}
+    }
+    )}
+      {data.map(e => (
+                   <div className= "baggy" key={e}>
 
-
-
-
-</h1>
- <p>{props.holddata2}</p>
-
-</div>
-
+                <p>quote:  {e}</p>
+              </div>
+            ))
+      }
+  </div>
 )
 }
 // <img src={props.holddata[1].picture} />

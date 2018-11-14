@@ -4,9 +4,6 @@ export default function Director(props){
 
 return(
   <div className ="panels">
-  <div className ="home" onClick={() => props.handleViewChange('Welcome')}>
-    Home
-  </div>
   <div className ="jerry" onClick={() => props.handleViewChange('Jerry')}>
     Jerry
   </div>
@@ -22,6 +19,10 @@ return(
   <div className ="allquotes" onClick={() => props.handleViewChange('AllQuotes')}>
     All Quotes
   </div>
+  <div className ="trivia" onClick={() => props.handleViewChange('Trivia')}>
+    Trivia
+  </div>
+
 
 
 

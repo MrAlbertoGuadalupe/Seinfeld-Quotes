@@ -1,19 +1,32 @@
 import React from 'react';
-
+import Home from './Home.js'
 
 export default function Elaine(props){
+let data=[];
 
 return(
-<div className ="bag">
-
-<h1>
-Elaine
 
 
-</h1>
 
+  <div className= "parent">
+  
+    {props.holddata.filter(e => {
+      if(e.author==="Elaine"){
+        data.push(e.quote);
+      }
 
-</div>
+    }
+    )}
+      {data.map(e => (
+                   <div className= "baggy" key={e}>
+
+                <p>quote:  {e}</p>
+              </div>
+            ))
+      }
+
+  </div>
+
 
 )
 }
