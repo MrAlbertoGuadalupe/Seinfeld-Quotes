@@ -30,22 +30,28 @@ class App extends Component {
 
 async handleSubmit(e) {
   let speaker = ''
-  if (this.state.ranQuote['author'] != "Elaine" &&
-      this.state.ranQuote['author'] != "Jerry" &&
-      this.state.ranQuote['author'] != "Kramer" &&
-      this.state.ranQuote['author'] != "George"
+    e.preventDefault();
+  if (this.state.ranQuote['author'] !== "Elaine" &&
+      this.state.ranQuote['author'] !== "Jerry" &&
+      this.state.ranQuote['author'] !== "Kramer" &&
+      this.state.ranQuote['author'] !== "George"
     ){
       speaker = "Other"
     }else {
       speaker = this.state.ranQuote['author']
     }
-        e.preventDefault();
+
         if (this.state.on === speaker) {
-          console.log('correct')
+          alert('Correct')
         } else {
-          console.log('incorrect')
+          alert(`incorrect it was ${speaker}`)
         }
-}
+        const ranResp = await axios.get(RAN_URL);
+        this.setState({
+          ranQuote: ranResp.data
+        });
+        }
+
 
 handleChange(e) {
          const id = e.target.id;
@@ -69,6 +75,13 @@ async fetchChars() {
              });
 
   }
+
+async setTriviaView() {
+      this.setState({
+       curView: 'Trivia'
+      });
+    }
+
 async setView(view) {
     this.setState({
      curView: view
@@ -110,9 +123,10 @@ getView(){
       case 'Trivia':
           return <Trivia
           holdrandata = {this.state.ranQuote}
-          holdMsg ={this.state.message}
           handleChange= {this.handleChange}
           handleSubmit= {this.handleSubmit}
+          handleViewChange={this.setView}
+
             />
 
       default:

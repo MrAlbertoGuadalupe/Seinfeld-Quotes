@@ -4,10 +4,10 @@ import React from 'react';
 export default function Trivia(props){
 
 return(
-  <div>
-  <h1>{props.holdrandata.quote}</h1>
+  <div className= "parent">
+  <h1>"{props.holdrandata.quote}"</h1>
 
-  <form onSubmit = {props.handleSubmit}>
+  <form className= "baggy" onSubmit = {props.handleSubmit}>
       <ul>
       <li>
     <label>
@@ -84,4 +84,10 @@ return(
 }
 
 
+//// <button
+//   className ="nextQuestion"
+//   onChange = {props.handleChange}
+//   onClick={() => this.props.forceUpdate()}>
 //
+//   Next Question
+// </button>

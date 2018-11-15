@@ -16,7 +16,7 @@ return(
       {data.map(e => (
                    <div className= "baggy" key={e}>
 
-                <p>quote:  {e}</p>
+                <p>Jerry:  "{e}"</p>
               </div>
             ))
       }

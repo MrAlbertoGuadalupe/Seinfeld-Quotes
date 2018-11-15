@@ -9,7 +9,7 @@ return(
 
 
   <div className= "parent">
-  
+
     {props.holddata.filter(e => {
       if(e.author==="Elaine"){
         data.push(e.quote);
@@ -20,7 +20,11 @@ return(
       {data.map(e => (
                    <div className= "baggy" key={e}>
 
-                <p>quote:  {e}</p>
+                <p>Elaine: "{e}"
+
+                </p>
+
+
               </div>
             ))
       }
