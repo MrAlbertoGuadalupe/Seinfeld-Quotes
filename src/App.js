@@ -8,6 +8,9 @@ import Elaine from './components/Elaine.js'
 import Kramer from './components/Kramer.js'
 import Home from './components/Home.js'
 import Trivia from './components/Trivia.js'
+import CorrectMsg from './components/CorrectMsg.js'
+import IncorrectMsg from './components/IncorrectMsg.js'
+import Answer from './components/Answer.js'
 import axios from 'axios';
 
 const BASE_URL = 'https://seinfeld-quotes.herokuapp.com/quotes';
@@ -42,13 +45,17 @@ async handleSubmit(e) {
     }
 
         if (this.state.on === speaker) {
-          alert('Correct')
+           this.setState ( {isCorrect: true});
+          // return <CorrectMsg />;
         } else {
-          alert(`incorrect it was ${speaker}`)
+          this.setState ( {isCorrect: false});
+          // return <IncorrectMsg />;
+          // alert(`incorrect it was ${speaker}`)
         }
         const ranResp = await axios.get(RAN_URL);
         this.setState({
-          ranQuote: ranResp.data
+          ranQuote: ranResp.data,
+
         });
         }
 
@@ -63,6 +70,8 @@ handleChange(e) {
 async componentDidMount() {
   this.fetchChars();
 }
+
+
 async fetchChars() {
              const resp = await axios.get(BASE_URL);
              const ranResp = await axios.get(RAN_URL);
@@ -76,11 +85,6 @@ async fetchChars() {
 
   }
 
-async setTriviaView() {
-      this.setState({
-       curView: 'Trivia'
-      });
-    }
 
 async setView(view) {
     this.setState({
@@ -125,8 +129,9 @@ getView(){
           holdrandata = {this.state.ranQuote}
           handleChange= {this.handleChange}
           handleSubmit= {this.handleSubmit}
+          handleSubmitTwo = {this.handleSubmitTwo}
           handleViewChange={this.setView}
-
+          isCorrect = {this.state.isCorrect}
             />
 
       default:
@@ -144,7 +149,9 @@ render() {
           handleViewChange={this.setView}
 
           />
+
         {this.getView()}
+
       </div>
 
   );
@@ -152,3 +159,12 @@ render() {
 }
 
 export default App;
+// { this.props.isCorrect && <Answer /> }
+// async handleSubmitTwo(e) {
+//   e.preventDefault();
+//   const ranResp = await axios.get(RAN_URL);
+//   this.setState({
+//     ranQuote: ranResp.data
+//   });
+// }
+//this.handleSubmitTwo = this.handleSubmitTwo.bind(this);

@@ -1,13 +1,15 @@
 import React from 'react';
-
+import CorrectMsg from './CorrectMsg.js'
+import IncorrectMsg from './IncorrectMsg.js'
+import Answer from './Answer.js'
 
 export default function Trivia(props){
 
 return(
   <div className= "parent">
-  <h1>"{props.holdrandata.quote}"</h1>
+  <h1 className= "hone">"{props.holdrandata.quote}"</h1>
 
-  <form className= "baggy" onSubmit = {props.handleSubmit}>
+  <form className= "formy" onSubmit = {props.handleSubmit}>
       <ul>
       <li>
     <label>
@@ -75,19 +77,23 @@ return(
   </label>
   </li>
 </ul>
-    <input type="submit" value="Submit" />
+    <input type="submit"
+      value="Submit"
 
+      />
+      <label>
+      Next Question:
+      <input
+      type="submit"
+      value="Next"
+
+      />
+    </label>
   </form>
-
-  </div>
+{ props.isCorrect && <Answer /> }
+   </div>
 )
 }
-
-
-//// <button
-//   className ="nextQuestion"
-//   onChange = {props.handleChange}
-//   onClick={() => this.props.forceUpdate()}>
-//
-//   Next Question
-// </button>
+// <Answer
+//   isCorrect={props.isCorrect} />
+  // onSubmit = {props.handleSubmitTwo}

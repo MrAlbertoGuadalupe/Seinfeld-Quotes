@@ -29,6 +29,11 @@ Include images of your wireframes.
 ### Landing Page
 The welcome(main) Page, they will be able to access all views(components) from this view
 
+## Ideas I'm kicking around/trying to implement
+A graph that counts how many quotes each character has an represents the data in a chart
+Getting Season and Episode data into the individual character pulls
+Rewrite code using Hooks
+
 
 ## Additional Libraries
  https://seinfeld-quotes.herokuapp.com/quotes
