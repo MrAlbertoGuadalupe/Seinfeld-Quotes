@@ -10,7 +10,6 @@ import Home from './components/Home.js'
 import Trivia from './components/Trivia.js'
 import CorrectMsg from './components/CorrectMsg.js'
 import IncorrectMsg from './components/IncorrectMsg.js'
-import Answer from './components/Answer.js'
 import axios from 'axios';
 
 const BASE_URL = 'https://seinfeld-quotes.herokuapp.com/quotes';
@@ -22,7 +21,9 @@ class App extends Component {
         curView: '',
         quote: '',
         ranQuote: '',
-        on:''
+        on:'',
+        isSubmitted: false
+
       }
       this.fetchChars = this.fetchChars.bind(this);
       this.setView = this.setView.bind(this);
@@ -55,7 +56,7 @@ async handleSubmit(e) {
         const ranResp = await axios.get(RAN_URL);
         this.setState({
           ranQuote: ranResp.data,
-
+          isSubmitted: true
         });
         }
 
@@ -102,6 +103,7 @@ getView(){
     holddata = {this.state.quote}
     />
 
+
     case 'Jerry':
     return <Jerry
     holddata = {this.state.quote}
@@ -132,6 +134,7 @@ getView(){
           handleSubmitTwo = {this.handleSubmitTwo}
           handleViewChange={this.setView}
           isCorrect = {this.state.isCorrect}
+          isSubmitted = {this.state.isSubmitted}
             />
 
       default:
@@ -159,12 +162,3 @@ render() {
 }
 
 export default App;
-// { this.props.isCorrect && <Answer /> }
-// async handleSubmitTwo(e) {
-//   e.preventDefault();
-//   const ranResp = await axios.get(RAN_URL);
-//   this.setState({
-//     ranQuote: ranResp.data
-//   });
-// }
-//this.handleSubmitTwo = this.handleSubmitTwo.bind(this);

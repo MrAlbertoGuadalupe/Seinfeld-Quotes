@@ -1,9 +1,19 @@
 import React from 'react';
 import CorrectMsg from './CorrectMsg.js'
 import IncorrectMsg from './IncorrectMsg.js'
-import Answer from './Answer.js'
+
 
 export default function Trivia(props){
+  let isCorrect = props.isCorrect;
+  let isSubmitted = props.isSubmitted;
+  if (isCorrect && isSubmitted) {
+    isCorrect = <CorrectMsg />
+    }
+  else if(!isCorrect && isSubmitted){
+    isCorrect = <IncorrectMsg />
+} else {
+  isCorrect = ""
+}
 
 return(
   <div className= "parent">
@@ -90,10 +100,15 @@ return(
       />
     </label>
   </form>
-{ props.isCorrect && <Answer /> }
+
+{isCorrect}
+
+
    </div>
 )
 }
 // <Answer
 //   isCorrect={props.isCorrect} />
   // onSubmit = {props.handleSubmitTwo}
+//
+// {props.isCorrect ? <CorrectMsg/> : <IncorrectMsg />}
