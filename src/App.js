@@ -10,6 +10,7 @@ import Home from './components/Home.js'
 import Trivia from './components/Trivia.js'
 import CorrectMsg from './components/CorrectMsg.js'
 import IncorrectMsg from './components/IncorrectMsg.js'
+import Footer from './components/Footer.js'
 import axios from 'axios';
 
 const BASE_URL = 'https://seinfeld-quotes.herokuapp.com/quotes';
@@ -154,7 +155,7 @@ render() {
           />
 
         {this.getView()}
-
+        <Footer />
       </div>
 
   );

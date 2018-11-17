@@ -29,7 +29,9 @@ body{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4));
 }
-
+.baggy>p {
+  font-weight: bold;
+}
 .panels>div {
   border: solid black 2px;
   background-size: cover;
@@ -38,12 +40,6 @@ body{
   width: 150px;
   margin: 20px;
   cursor: pointer;
-}
-
-.jerry {
-  background-image: url('./Media/Jerry.png');
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 50%;
   display: inline-block;
   vertical-align: middle;
@@ -57,8 +53,7 @@ body{
   transition-property: transform;
 }
 
-
-.jerry:before {
+.panels>div:before {
   pointer-events: none;
   position: absolute;
   z-index: -1;
@@ -75,47 +70,42 @@ body{
   -webkit-transition-property: transform, opacity;
   transition-property: transform, opacity;
 }
-.jerry:hover, .jerry:focus, .jerry:active {
+.panels>div:hover, .panels>div:focus, .panels>div:active {
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
 
 }
-.jerry:hover:before, .jerry:focus:before, .jerry:active:before {
+.panels>div:hover:before, .panels>div:focus:before, .panels>div:active:before {
   opacity: 1;
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
 
 }
+.jerry {
+  background-image: url('./Media/Jerry.png');
+  position: relative;
+  width: 50%;
+
+}
 
 .george {
   background-image: url('./Media/George.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
 }
 
 .elaine {
   background-image: url('./Media/Elaine.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
 }
 
 .kramer {
   background-image: url('./Media/Kramer.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+
   background-position: 55%;
 }
 .allquotes {
   background-image: url('./Media/Quotes.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
 }
 .trivia {
   background-image: url('./Media/Trivia.png');
-  background-size: contain;
   background-position: 50% 50%;
 }
 
@@ -143,4 +133,65 @@ ul {
 
 .hone {
   background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.panels>div:hover .image {
+  opacity: 0.3;
+}
+
+.panels>div:hover .middle {
+  opacity: 1;
+}
+.jtext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+.gtext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+.etext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+.ktext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+.qtext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+.ttext {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 16px 32px;
+}
+
+
+footer {
+  margin: 0 auto;
+  bottom:0;
+  width:100%;
+  padding-top: 100px;
 }
