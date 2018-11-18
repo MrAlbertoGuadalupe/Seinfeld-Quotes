@@ -15,7 +15,7 @@ Being able to access All Quotes and filter for Quotes from each of the main char
 Use the quotes to create a trivia game (Guess who said the quote)
 
 ## Wireframes
-
+![wireframe](wireframe.jpeg)
 Include images of your wireframes.
 
 ## Game Components
@@ -36,8 +36,9 @@ Rewrite code using Hooks
 
 
 ## Additional Libraries
+API Host
  https://seinfeld-quotes.herokuapp.com/quotes
- API Host
+
 
 ## Code Snippet  
 
@@ -45,3 +46,10 @@ Rewrite code using Hooks
 ## Javscript Discoveries
 
 ## Issues and Resolutions
+
+## Deployment Link
+Deployed Project
+http://coordinated-crayon.surge.sh/
+
+Youtube Presentation
+https://www.youtube.com/watch?v=T7pxnFzVVA8&feature=youtu.be

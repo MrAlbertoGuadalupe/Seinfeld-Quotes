@@ -105,12 +105,13 @@ body{
   background-image: url('./Media/Quotes.jpg');
 }
 .trivia {
-  background-image: url('./Media/Trivia.png');
+  background-image: url('./Media/Diner.png');
   background-position: 50% 50%;
 }
 
 ul {
   list-style-type: none;
+  font-size: 25px;
 }
 
 .parent {
@@ -153,37 +154,43 @@ ul {
 }
 .jtext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
 .gtext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
 .etext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
 .ktext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
 .qtext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
 .ttext {
   color: white;
-  font-size: 25px;
+  font-size: 30px;
+  text-shadow: 2px 2px black;
   font-weight: bold;
   padding: 16px 32px;
 }
