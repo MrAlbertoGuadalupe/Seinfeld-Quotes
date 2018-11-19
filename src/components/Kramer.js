@@ -13,7 +13,7 @@ return(
     }
     )}
       {data.map(e => (
-                   <div className= "baggy" key={e}>
+                   <div className = "baggy" key={e}>
 
                 <p>Kramer:  "{e}"</p>
               </div>
@@ -22,6 +22,3 @@ return(
   </div>
 )
 }
-// <img src={props.holddata[1].picture} />
-
-//

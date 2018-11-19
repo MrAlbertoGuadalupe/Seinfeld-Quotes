@@ -1,39 +1,28 @@
 import React from 'react';
 import Home from './Home.js'
 
-export default function Elaine(props){
-let data=[];
+export default function Elaine(props) {
+  let data = [];
 
-return(
+  return (<div className="parent">
 
+    {
+      props.holddata.filter(e => {
+        if (e.author === "Elaine") {
+          data.push(e.quote);
+        }
 
-
-  <div className= "parent">
-
-    {props.holddata.filter(e => {
-      if(e.author==="Elaine"){
-        data.push(e.quote);
-      }
-
+      })
     }
-    )}
-      {data.map(e => (
-                   <div className= "baggy" key={e}>
+    {
+      data.map(e => (<div className="baggy" key={e}>
 
-                <p>Elaine: "{e}"
+        <p>Elaine: "{e}"
 
-                </p>
+        </p>
 
+      </div>))
+    }
 
-              </div>
-            ))
-      }
-
-  </div>
-
-
-)
+  </div>)
 }
-// <img src={props.holddata[1].picture} />
-
-//

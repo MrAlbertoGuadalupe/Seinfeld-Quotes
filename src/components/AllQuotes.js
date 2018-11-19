@@ -10,7 +10,7 @@ return(
 
   {props.holddata.map(index => (
                <div className= "baggy" key={index}>
-               {console.log(index)}
+               
             <p>{index.author}:  "{index.quote}"</p>
             <span> Season:{index.season} </span>
             <span> Episode:{index.episode} </span>
